@@ -35,6 +35,12 @@ app.listen(8080, () => {
     console.log('Listening on port 8080 \n App Initialized');
 });
 
+app.get('/', (req, res) => {
+    res.send({
+        message: 'Your Viewing Default Api gateway refer to useful gateways such as /bans/uuid/{uuid}' 
+    }).status(100)
+})
+
 app.get('/bans/uuid/:uuid', async (req, res) => {
     const { uuid } = req.params;
     if (!uuid) {
