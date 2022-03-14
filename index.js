@@ -41,7 +41,8 @@ function toJson(data) {
         return res;
     }
 }
-app.listen(8080, () => {
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
     console.log('Listening on port 8080 \n App Initialized');
 });
 app.get('/', (req, res) => {
