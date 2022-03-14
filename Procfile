@@ -1,1 +1,1 @@
-worker: node index.js
+worker: npx prisma generate && node index.js
