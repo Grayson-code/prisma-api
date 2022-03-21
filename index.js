@@ -50,10 +50,10 @@ app.get('/', (req, res) => {
         message: 'Your Viewing Default Api gateway refer to useful gateways such as /bans/uuid/{uuid}'
     }).status(100);
 });
-app.get('/bans/uuid/:uuid', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/bans/:uuid', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { uuid } = req.params;
     if (!uuid) {
-        return res.status(418).send({
+        return res.status(400).send({
             error: 'No UUID Defined'
         });
     }
@@ -69,7 +69,7 @@ app.get('/bans/uuid/:uuid', (req, res) => __awaiter(void 0, void 0, void 0, func
         res.status(200).send(data);
     }
 }));
-app.get('/kicks/uuid/:uuid', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/kicks/:uuid', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { uuid } = req.params;
     if (!uuid) {
         return res.status(418).send({
@@ -88,7 +88,7 @@ app.get('/kicks/uuid/:uuid', (req, res) => __awaiter(void 0, void 0, void 0, fun
         res.status(200).send(data);
     }
 }));
-app.get('/warns/uuid/:uuid', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/warns/:uuid', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { uuid } = req.params;
     if (!uuid) {
         return res.status(418).send({
@@ -108,7 +108,7 @@ app.get('/warns/uuid/:uuid', (req, res) => __awaiter(void 0, void 0, void 0, fun
     }
     ;
 }));
-app.get('/mutes/uuid/:uuid', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/mutes/:uuid', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { uuid } = req.params;
     if (!uuid) {
         return res.status(418).send({

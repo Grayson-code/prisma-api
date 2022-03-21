@@ -38,14 +38,14 @@ app.listen(port, () => {
 
 app.get('/', (req, res) => {
     res.send({
-        message: 'Your Viewing Default Api gateway refer to useful gateways such as /bans/uuid/{uuid}' 
+        message: 'Hyper Text Coffee Pot Transfer Protocol' 
     }).status(100)
 })
 
-app.get('/bans/uuid/:uuid', async (req, res) => {
+app.get('/bans/:uuid', async (req, res) => {
     const { uuid } = req.params;
     if (!uuid) {
-        return res.status(418).send({
+        return res.status(400).send({
             error: 'No UUID Defined'
         });
     };
@@ -54,7 +54,7 @@ app.get('/bans/uuid/:uuid', async (req, res) => {
     const data: any = toJson(datas);
 
     if (!data[0].id) {
-        res.status(205).send({
+        res.status(200).send({
             error: 'Couldnt find any bans with the uuid of ' + uuid
         });
     } else {
@@ -62,10 +62,10 @@ app.get('/bans/uuid/:uuid', async (req, res) => {
     }
 
 })
-app.get('/kicks/uuid/:uuid', async (req, res) => {
+app.get('/kicks/:uuid', async (req, res) => {
     const { uuid } = req.params;
     if (!uuid) {
-        return res.status(418).send({
+        return res.status(200).send({
             error: 'No UUID Defined'
         });
     };
@@ -73,7 +73,7 @@ app.get('/kicks/uuid/:uuid', async (req, res) => {
     const data: any = toJson(datas);
 
     if (!data[0].id) {
-        res.status(205).send({
+        res.status(200).send({
             error: 'Couldnt find any kicks with the uuid of ' + uuid
         });
     } else {
@@ -81,10 +81,10 @@ app.get('/kicks/uuid/:uuid', async (req, res) => {
     }
 })
 
-app.get('/warns/uuid/:uuid', async (req, res) => {
+app.get('/warns/:uuid', async (req, res) => {
     const { uuid } = req.params;
     if (!uuid) {
-        return res.status(418).send({
+        return res.status(200).send({
             error: 'No UUID Defined'
         });
     };
@@ -92,7 +92,7 @@ app.get('/warns/uuid/:uuid', async (req, res) => {
     const data:any = toJson(datas);
 
     if (!data[0].id) {
-        res.status(205).send({
+        res.status(200).send({
             error: 'Coudnt find any warnings with the uuid of ' + uuid
         });
     } else {
@@ -100,10 +100,10 @@ app.get('/warns/uuid/:uuid', async (req, res) => {
     };
 });
 
-app.get('/mutes/uuid/:uuid', async (req, res) => {
+app.get('/mutes/:uuid', async (req, res) => {
     const { uuid } = req.params;
     if (!uuid) {
-        return res.status(418).send({
+        return res.status(200).send({
             error: 'No UUID Defined'
         });
     };
@@ -111,7 +111,7 @@ app.get('/mutes/uuid/:uuid', async (req, res) => {
     const data:any = toJson(datas);
 
     if (!data[0].id) {
-        res.status(205).send({
+        res.status(200).send({
             error: 'Couldnt find any mutes with the uuid of ' + uuid
         });
     } else {
